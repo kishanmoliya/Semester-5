@@ -4,18 +4,6 @@ public class Prime {
     public static void main(String[] args) {
         int n = 23;
 
-        //Second method
-//        if(prime(n))
-//            System.out.println(n + " is a Prime Number");
-//        else
-//            System.out.println(n + " is Not a Prime Number");
-
-        //First Method
-//        if(getPrime(n, 2))
-//            System.out.println(n + " is a Prime Number");
-//        else
-//            System.out.println(n + " is Not a Prime Number");
-
         //Normal Method
         boolean flage = true;
         for(int i=2; i<n / 2; i++){
@@ -28,8 +16,21 @@ public class Prime {
             System.out.println(n + " is a Prime Number");
         else
             System.out.println(n + " is Not a Prime Number");
+
+ //       //Recursion Method - 1
+//        if(getPrime(n, 2))
+//            System.out.println(n + " is a Prime Number");
+//        else
+//            System.out.println(n + " is Not a Prime Number");
+
+ //       //Recursion Method - 2
+//        if(prime(n))
+//            System.out.println(n + " is a Prime Number");
+//        else
+//            System.out.println(n + " is Not a Prime Number");
     }
 
+    //Recursion Method - 1
     static boolean getPrime(int n, int s){
         if(s > n / 2){
             return true;
@@ -40,7 +41,7 @@ public class Prime {
         return getPrime(n,s + 1);
     }
 
-    //Second Method
+    //Recursion Method - 2
     static boolean prime(int n){
         return halper(n, 2);
     }

@@ -4,7 +4,7 @@ public class Fibbo {
     public static void main(String[] args) {
         int n = 5;
 
-        //Normal Method
+//        //Normal Method
 //        int a = 0;
 //        int b = 1;
 //        int ans = 0;
@@ -15,7 +15,7 @@ public class Fibbo {
 //        }
 //        System.out.println(ans);
 
-        //Full Series
+//        //Normal Method Series
 //        int a = 0;
 //        int b = 1;
 //        for(int i=0; i<n; i++){
@@ -25,6 +25,7 @@ public class Fibbo {
 //            b = temp;
 //       }
 
+        //Recursion
         System.out.println(fibbo(n - 1));
     }
 
