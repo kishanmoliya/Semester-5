@@ -7,12 +7,12 @@ import 'dart:io';
 
 void main() {
   stdout.write("Enter your Weight in kilograms = ");
-  double? pound = double.parse(stdin.readLineSync()!);
+  double pound = double.parse(stdin.readLineSync()!);
 
   stdout.write("Enter your Height in meters = ");
-  double? inch = double.parse(stdin.readLineSync()!);
+  double inch = double.parse(stdin.readLineSync()!);
 
-  double BMI = (pound * 0.45359237) / ((inch * 0.254) * (inch * 0.254));
+  double BMI = (pound * 0.45359237) / ((inch * 0.0254) * (inch * 0.0254));
 
   print("BMI = $BMI");
 }

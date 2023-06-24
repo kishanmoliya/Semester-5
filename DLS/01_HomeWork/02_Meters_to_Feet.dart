@@ -3,11 +3,8 @@ import 'dart:io';
 
 void main() {
   stdout.write("Enter the value of meters = ");
-  double? meters = double.parse(stdin.readLineSync()!);
-  feet(meters);
-}
+  double meters = double.parse(stdin.readLineSync()!);
 
-void feet(double meters) {
   double feet = meters * 3.28084;
 
   print('$meters meters = $feet feet');
