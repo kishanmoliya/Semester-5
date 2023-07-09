@@ -13,4 +13,13 @@ void main() {
     num = num ~/ 10;
   }
   print(reverse);
+
+  //For Loop Method
+  for (int i = num; i > 0;) {
+    rem = i % 10;
+    reverse = reverse * 10 + rem;
+    i = i ~/ 10;
+  }
+
+  print(reverse);
 }

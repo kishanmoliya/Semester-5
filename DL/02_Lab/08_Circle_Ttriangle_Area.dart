@@ -20,7 +20,7 @@ void main() {
 }
 
 void findArea(
-    {double circle = 0, //aslo done it double? circle : 0,
+    {double circle = 0, //aslo done with double? circle : 0,
     double triHight = 0,
     double triBase = 0,
     double squre = 0}) {

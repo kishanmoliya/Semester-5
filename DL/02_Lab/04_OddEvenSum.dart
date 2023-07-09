@@ -20,4 +20,16 @@ void main() {
       oddSum += n;
     }
   }
+
+  // int n = 1;
+  // while (n != 0) {
+  //   stdout.write("Enter the Number = ");
+  //   int n = int.parse(stdin.readLineSync()!);
+
+  //   if (n % 2 == 0 && n > 0) {
+  //     evenSum += n;
+  //   } else if (n % 2 != 0 && n < 0) {
+  //     oddSum += n;
+  //   }
+  // }
 }
