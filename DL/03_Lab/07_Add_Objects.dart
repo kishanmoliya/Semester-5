@@ -1,34 +1,40 @@
 // Write a program to insert objects in List<dynamic> using function and display it using
 // function. (Name, Age, Hobby).
+import 'dart:io';
 
-class Person {
-  String name;
-  int age;
-  String hobby;
+void main(List<String> args) {
+  List<Map<String, dynamic>> person = [];
 
-  Person(this.name, this.age, this.hobby);
-}
+  stdout.write("Enter the size of list : ");
+  int n = int.parse(stdin.readLineSync()!);
 
-void insertPerson(List<dynamic> persons, String name, int age, String hobby) {
-  Person person = Person(name, age, hobby);
-  persons.add(person);
-}
+  for (int i = 0; i < n; i++) {
+    stdout.write("Enter the Name: ");
+    String n = stdin.readLineSync()!;
+    stdout.write("Enter the Age: ");
+    int a = int.parse(stdin.readLineSync()!);
+    stdout.write("Enter the hobby: ");
+    String h = stdin.readLineSync()!;
 
-void displayPersons(List<dynamic> persons) {
-  print("List of Persons:");
-  for (var person in persons) {
-    print("Name: ${person.name}, Age: ${person.age}, Hobby: ${person.hobby}");
+    person.add(insertMap(name: n, age: a, hobby: h));
   }
+  display(person);
 }
 
-void main() {
-  List<dynamic> persons = [];
+Map<String, dynamic> insertMap({name, age, hobby}) {
+  Map<String, dynamic> map = {
+    'name': name,
+    'age': age,
+    'hobby': hobby,
+  };
 
-  // Inserting persons into the list
-  insertPerson(persons, "Kishan", 25, "Cricket");
-  insertPerson(persons, "Karan", 30, "Reading");
-  insertPerson(persons, "Uttam", 22, "Painting");
+  return map;
+}
 
-  // Displaying the list of persons
-  displayPersons(persons);
+void display(person) {
+  for (int i = 0; i < person.length; i++) {
+    print("\nName : ${person[i]['name']}");
+    print("Age : ${person[i]['age']}");
+    print("Hobby : ${person[i]['hobby']}");
+  }
 }

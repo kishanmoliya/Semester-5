@@ -282,6 +282,7 @@ namespace Tutorial_Projects
             {
                 //7.5% Interest Rate per Year
                 Console.WriteLine("======================");
+                Console.WriteLine("7.5% Interest Rate per Year");   
                 double interest =(balance * 7.5 * 1) / 100;
                 Console.WriteLine("Total Interest = " + interest);
                 Console.WriteLine("Finale Balence = " + (interest + balance));
