@@ -6,20 +6,20 @@ import 'dart:math';
 
 void main() {
   stdout.write("Enter thr Reedis = ");
-  dynamic redis = double.parse(stdin.readLineSync()!);
+  dynamic radius = double.parse(stdin.readLineSync()!);
 
   Circle cr = Circle();
-  cr.area(redis);
-  cr.perimeter(redis);
+  cr.area(radius);
+  cr.perimeter(radius);
 }
 
 class Circle {
-  area(double redis) {
-    print("The Area of Circle = ${pi * redis * redis}");
+  area(double radius) {
+    print("The Area of Circle = ${pi * radius * radius}");
   }
 
-  perimeter(double redis) {
-    print("The Perimeter of Circle = ${2 * pi * redis}");
+  perimeter(double radius) {
+    print("The Perimeter of Circle = ${2 * pi * radius}");
   }
 }
 

@@ -4,8 +4,8 @@ import 'dart:io';
 import 'dart:math';
 
 void main() {
-  stdout.write("Enter the Redis = ");
-  double redis = double.parse(stdin.readLineSync()!);
+  stdout.write("Enter the radius = ");
+  double radius = double.parse(stdin.readLineSync()!);
 
   stdout.write("Enter the Hight = ");
   double hight = double.parse(stdin.readLineSync()!);
@@ -14,16 +14,24 @@ void main() {
   double base = double.parse(stdin.readLineSync()!);
 
   stdout.write("Enter the Area = ");
-  double? a = double.parse(stdin.readLineSync()!);
+  double a = double.parse(stdin.readLineSync()!);
 
-  findArea(circle: redis, triHight: hight, triBase: base, squre: a);
+  findArea(circle: radius, triHight: hight, triBase: base, squre: a);
+
+  // findArea(circle: radius);
+
+  // findArea(triHight: hight);
+
+  // findArea(triHight: hight);
+
+  // findArea(squre: a);
 }
 
 void findArea(
-    {double circle = 0, //aslo done with double? circle : 0,
-    double triHight = 0,
-    double triBase = 0,
-    double squre = 0}) {
+    {double circle = 8,
+    double triHight = 2,
+    double triBase = 6,
+    double squre = 5}) {
   double circleArea = pi * circle * circle;
   print("Area of Circle = $circleArea");
 

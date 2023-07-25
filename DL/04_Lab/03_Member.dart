@@ -20,7 +20,13 @@ void main() {
       address: "asdf",
       salary: 1230.25,
       specialization: "kjff");
-  Manager m = new Manager("moliya", 18, 4451894567, "asdgfrf", 12380.25, "dep");
+  Manager m = new Manager(
+      name: "moliya",
+      age: 18,
+      phone_no: 4451894567,
+      address: "asdgfrf",
+      salary: 12380.25,
+      department: "dep");
   e.printDetails();
   m.printDetails();
 }
@@ -44,7 +50,6 @@ class Member {
     this.address = address;
     this.salary = salary;
   }
-  // Member(String name, int age, int phone_no, String address, double salary) {}
 
   printSalary() {
     print("Salary = $salary");
@@ -55,29 +60,22 @@ class Employee extends Member {
   String? specialization;
 
   Employee(
-      {String? name,
-      int? age,
-      int? phone_no,
-      String? address,
-      double? salary,
-      String? specialization})
-      : super(
-          address: address,
-          age: age,
-          name: name,
-          phone_no: phone_no,
-          salary: salary,
-        ) {
+      {super.name,
+      super.age,
+      super.phone_no,
+      super.address,
+      super.salary,
+      String? specialization}) {
     this.specialization = specialization;
   }
 
   printDetails() {
-    print("   Employee Class");
+    print("\tEmployee Details");
     print("Name = $name");
     print("Age = $age");
     print("Phone_NO = $phone_no");
     print("Address = $address");
-    print("Salary = $salary");
+    printSalary();
     print("Specialization = $specialization");
   }
 }
@@ -85,25 +83,23 @@ class Employee extends Member {
 class Manager extends Member {
   String? department;
 
-  Manager(String name, int age, int phone_no, String address, double salary,
-      String department)
-      : super(
-          address: address,
-          age: age,
-          name: name,
-          phone_no: phone_no,
-          salary: salary,
-        ) {
+  Manager(
+      {super.name,
+      super.age,
+      super.phone_no,
+      super.address,
+      super.salary,
+      String? department}) {
     this.department = department;
   }
 
   printDetails() {
-    print("\n   Menager Class");
+    print("\n\tMenager Details");
     print("Name = $name");
     print("Age = $age");
     print("Phone_NO = $phone_no");
     print("Address = $address");
-    print("Salary = $salary");
+    printSalary();
     print("DepartMent = $department");
   }
 }
