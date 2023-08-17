@@ -9,7 +9,7 @@ namespace TutorialProjects
     {
         public static void Main(string[] args)
         {
-            /* while (true)
+             while (true)
              {
                  Console.WriteLine("=========================================");
                  Console.WriteLine("Press Zero(0) to Exit");
@@ -32,8 +32,7 @@ namespace TutorialProjects
                      case "6": Lab_06 lab6 = new Lab_06(); break;
                      default: Console.WriteLine("Please Enter Valid Program Number"); break;
                  }
-             }*/
-            Lab_06 lab4 = new Lab_06();
+             }
         }
     }       
  }

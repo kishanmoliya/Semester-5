@@ -56,7 +56,6 @@ namespace Tutorial_Projects
         void IndezxOutOfRange()
         {
             int[] numbers = new int[5];
-
             try
             {
                 Console.WriteLine("Enter 5 numbers:");
@@ -221,8 +220,8 @@ namespace Tutorial_Projects
             Console.WriteLine("Substring from index 7: " + str.Substring(7));
 
             // Concatenation
-            string anotherString = " is ASP.Net core Developer";
-            Console.WriteLine("Concatenated string: " + string.Concat(str, anotherString));
+            string contant = " is ASP.Net core Developer";
+            Console.WriteLine("Concatenated string: " + string.Concat(str, contant));
 
             // Replace
             Console.WriteLine("Replaced string: " + str.Replace('M', 'm'));
