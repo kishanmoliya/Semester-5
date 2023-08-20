@@ -1,0 +1,20 @@
+1. Create Areas Folder.
+
+2. Create MVC Area inside the Areas.
+
+3. Add name pattern in program.cs file from ScafoldingReadMe.txt file.
+
+4. Create Controller inside MVC Area.
+
+5. Copy _ViewImports.cshtml filw in Views Folder from Shared Folder.
+
+6. Create Folder named same as Areas inside Views and create views last crated floder.
+
+7. Add -> @{Layout = "_Layout";} inside view.
+
+8. Add 
+,
+  "ConnectionStrings": {
+    "myConnectionString": "Data Source = KISHAN\\SQLEXPRESS; Initial Catalog = StudentMaster; Integrated Security = True;"
+  }
+in appsettiongs.json
