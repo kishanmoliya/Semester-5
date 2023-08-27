@@ -7,9 +7,7 @@ class AssetsImage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Asset Image."),
       ),
-      body: const Image(
-        image: AssetImage('assets/images/person.jfif'),
-      ),
+      body: Image.asset('assets/images/person.jfif'),
     );
   }
 }

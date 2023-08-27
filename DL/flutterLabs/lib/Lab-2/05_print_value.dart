@@ -14,23 +14,20 @@ class _PrintTextFormFieldValueState extends State<PrintTextFormFieldValue> {
       appBar: AppBar(
         title: const Text("Print Form Field Value"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            TextFormField(
-              controller: controller,
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(), labelText: "Enter Something"),
-            ),
-            ElevatedButton(
-                onPressed: () {setState(() {});},
-                child: const Text("Display")
-            ),
+      body: Column(
+        children: [
+          TextField(
+            controller: controller,
+            decoration: const InputDecoration(
+                border: OutlineInputBorder(), labelText: "Enter Something"),
+          ),
+          ElevatedButton(
+              onPressed: () {setState(() {});},
+              child: const Text("Display")
+          ),
 
-            Text('Details: ${controller.text}')
-          ],
-        ),
+          Text('Details: ${controller.text}')
+        ],
       ),
     );
   }

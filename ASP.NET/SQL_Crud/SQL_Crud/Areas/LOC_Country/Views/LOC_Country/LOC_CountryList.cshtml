@@ -8,6 +8,18 @@
 @model System.Data.DataTable;
 
 <div class="container">
+    <nav class="navbar bg-body-tertiary mb-2">
+        <div class="container-fluid">
+            <form class="d-flex w-50" role="search" asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="LOC_CountrySearch">
+                <input class="form-control me-2" type="text" placeholder="Search by country name" aria-label="Search" name="CountryName">
+                <input class="form-control me-2" type="text" placeholder="Search by country code" aria-label="Search" name="CountryCode">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
     <div class="mb-3 text-end">
         <a type="button" asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="LOC_CountryAddEdit" class="btn btn-outline-primary"><i class="bi bi-plus"></i>New Country</a>
     </div>
@@ -18,14 +30,13 @@
                 <th scope="col">Country Code</th>
                 <th scope="col">Created Date</th>
                 <th scope="col">Modified Date</th>
-                <th scope="col">Action</th>
+                <th scope="col" colspan="2" class="text-center">Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach (System.Data.DataRow data in Model.Rows)
             {
                 <tr>
-
                     <td>@data["CountryName"]</td>
                     <td>@data["CountryCode"]</td>
                     <td>@Convert.ToDateTime(data["Created"]).ToString("dd MMM, yyyy")</td>

@@ -268,3 +268,37 @@ AS
 DELETE FROM [dbo].[LOC_City]
 WHERE [dbo].[LOC_City].[CityID] = @CityID
 -- =================================================================================
+
+
+-- 26. Search Country by their name of code.
+-- PR_Country_Search @CountryName = '', @CountryCode = ''
+Create or Alter Procedure [dbo].[PR_Country_Search]
+	@CountryName	varchar(100) = null,
+	@CountryCode	varchar(25) = null
+As
+	Select [dbo].[LOC_Country].[CountryID],
+		   [dbo].[LOC_Country].[CountryName],
+		   [dbo].[LOC_Country].[CountryCode],
+		   [dbo].[LOC_Country].[Created],
+	       [dbo].[LOC_Country].[Modified]
+	From  [dbo].[LOC_Country]
+	Where  [dbo].[LOC_Country].[CountryName] Like CONCAT('%', @CountryName, '%')
+	And	   [dbo].[LOC_Country].[CountryName] Like CONCAT('%', @CountryCode, '%')
+	Order By [dbo].[LOC_Country].[CountryName]
+
+
+-- 29. Dropdown for Country
+Create or Alter Procedure [dbo].[PR_Country_Dropdown]
+As
+Select [dbo].[LOC_Country].[CountryID],
+	   [dbo].[LOC_Country].[CountryName]
+From  [dbo].[LOC_Country]
+ORDER BY [dbo].[LOC_Country].[CountryName]
+
+-- 30. State Name for Dropdown Combobox.
+CREATE OR ALTER PROCEDURE [dbo].[PR_State_SelectForDropdown]
+AS
+SELECT  [dbo].[LOC_State].[StateID],
+	    [dbo].[LOC_State].[StateName]	
+FROM [dbo].[LOC_State]
+ORDER BY [dbo].[LOC_State].[StateName]

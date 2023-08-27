@@ -7,10 +7,8 @@ class NetWorkImage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("NetWork Image"),
       ),
-      body: const Image(
-        image: NetworkImage(
+      body: Image.network(
             'https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg'),
-      ),
     );
   }
 }
