@@ -7,6 +7,7 @@ class BirthdayCard extends StatefulWidget {
 
 class _BirthdayCardState extends State<BirthdayCard> {
   String name = "Darshan";
+  TextEditingController nameController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,18 @@ class _BirthdayCardState extends State<BirthdayCard> {
             "assets/images/birthday.png",
             fit: BoxFit.fill,
           ),
-          Text("Happy BirthDay $name"),
+          Center(
+              child: Row(
+            children: [
+              Text("Happy BirthDay ${nameController.text}"),
+              TextField(
+                onSubmitted: (value) {
+                  setState(() {});
+                },
+                controller: nameController,
+              ),
+            ],
+          )),
         ],
       ),
     );

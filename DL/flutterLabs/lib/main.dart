@@ -1,17 +1,25 @@
-import 'package:diploma_projects/firstScreen.dart';
+import 'package:diploma_projects/Lab-4/05_roll_dice.dart';
+import 'package:diploma_projects/Lab-5/ListViewBuilderDemo.dart';
+import 'package:diploma_projects/Lab-5/ListViewDemo.dart';
+import 'package:diploma_projects/Lab-5/listOfUsers.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: firstScreen(),
+      home: UsersList(),
     );
   }
 }

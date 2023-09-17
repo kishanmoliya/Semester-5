@@ -28,12 +28,10 @@ class _BottomNavigationBarrState extends State<BottomNavigationBarr> {
           BottomNavigationBarItem(
             icon: Icon(Icons.meeting_room, ),
             label: "Lab Programs",
-            backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.phonelink_rounded),
             label: "Projects",
-            backgroundColor: Colors.black,
           ),
         ],
         onTap: (value) {

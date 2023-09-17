@@ -7,11 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\LOC_City\Controllers\" />
     <Folder Include="Areas\LOC_City\Data\" />
-    <Folder Include="Areas\LOC_City\Models\" />
     <Folder Include="Areas\LOC_Country\Data\" />
     <Folder Include="Areas\LOC_State\Data\" />
+    <Folder Include="Areas\MST_Branch\Data\" />
+    <Folder Include="Areas\MST_Branch\Models\" />
+    <Folder Include="Areas\MST_Student\Data\" />
   </ItemGroup>
 
   <ItemGroup>

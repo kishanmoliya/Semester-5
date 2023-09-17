@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="mb-3 text-end">
+        <a type="button" asp-area="MST_Branch" asp-controller="MST_Branch" asp-action="MST_BranchAddEdit" class="btn btn-outline-primary"><i class="bi bi-plus"></i>New Branch</a>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-primary">
+                <th scope="col">Branch Name</th>
+                <th scope="col">Branch Code</th>
+                <th scope="col">Created Date</th>
+                <th scope="col">Modified Date</th>
+                <th scope="col" colspan="2" class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (System.Data.DataRow data in Model.Rows)
+            {
+                <tr>
+                    <td>@data["BranchName"]</td>
+                    <td>@data["BranchCode"]</td>
+                    <td>@Convert.ToDateTime(data["Created"]).ToString("dd MMM, yyyy")</td>
+                    <td>@data["Modified"]</td>
+                    <td class="text-end">
+                        <form method="post" asp-area="MST_Branch" asp-controller="MST_Branch" asp-action="MST_BranchAddEdit" asp-route-ID="@data["BranchID"]">
+                            <button type="submit" class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i></button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" asp-area="MST_Branch" asp-controller="MST_Branch" asp-action="MST_BranchDelete" asp-route-BranchID="@data["BranchID"]">
+                            @*<input type="hidden" name="CountryID" value="@Convert.ToInt32(data["CountryID"])" />*@
+                            <button type="submit" class="btn btn-outline-danger"><i class="bi bi-trash3-fill"></i></button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

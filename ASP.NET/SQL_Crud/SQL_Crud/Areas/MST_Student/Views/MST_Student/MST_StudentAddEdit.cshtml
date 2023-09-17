@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Layout";
+}
+
+@model SQL_Crud.Areas.MST_Student.Models.MST_StudentModel
+
+<h1>@ViewBag.id</h1>
+<h1>@ViewBag.namee</h1>
+<div class="container w-50">
+    <form method="post" asp-area="MST_Student" asp-controller="MST_Student" asp-action="Save">
+        @Html.HiddenFor(x => x.StudentID)
+        <div class="my-4">
+            <select class="form-select" aria-label="Select City" asp-for="CityID" asp-items="@(new SelectList(ViewBag.CityDropdownList, "CityID", "CityName"))">
+                <option selected>Select City</option>
+            </select>
+        </div>
+        <div class="my-4">
+            <select class="form-select" aria-label="Select State" asp-for="BranchID" asp-items="@(new SelectList(ViewBag.BranchDropdownList, "BranchID", "BranchName"))">
+                <option selected>Select Branch</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><span class="text-danger fw-bold">*</span>Student Name :</label>
+            <input type="text" class="form-control" id="StudentName" name="StudentName" asp-for="StudentName" />
+            <span class="form-text text-danger" asp-validation-for="StudentName"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><span class="text-danger fw-bold">*</span>Mobile No :</label>
+            <input type="text" class="form-control" id="MobileNoStudent" name="MobileNoStudent" asp-for="MobileNoStudent" />
+            <span class="form-text text-danger" asp-validation-for="MobileNoStudent"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><span class="text-danger fw-bold">*</span>Email :</label>
+            <input type="text" class="form-control" id="Email" name="Email" asp-for="Email" />
+            <span class="form-text text-danger" asp-validation-for="Email"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

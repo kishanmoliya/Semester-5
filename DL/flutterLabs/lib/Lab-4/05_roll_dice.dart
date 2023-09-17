@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-int i = Random().nextInt(5)+1;
 class LudoDice extends StatefulWidget {
   const LudoDice({Key? key}) : super(key: key);
 
@@ -10,6 +9,7 @@ class LudoDice extends StatefulWidget {
 }
 
 class _LudoDiceState extends State<LudoDice> {
+  int i = Random().nextInt(6)+1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,8 +17,8 @@ class _LudoDiceState extends State<LudoDice> {
       appBar: AppBar(
         title: const Text("Ludo Dice"),
       ),
-      body: InkWell(
-        onTap: () {
+      body: TextButton(
+        onPressed: () {
           setState((){
             i = Random().nextInt(6)+1;
           });
