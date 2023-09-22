@@ -375,7 +375,7 @@ WHERE [dbo].[MST_Branch].[BranchID] = @BranchID
 ORDER BY [dbo].[MST_Branch].[BranchName]
 
 -- 21. Create Procedure for Select Student by PK
--- PR_Student_SelectByPK 2
+-- PR_Student_SelectByPK 9
 CREATE or Alter PROCEDURE [dbo].[PR_Student_SelectByPK]
 @StudentID int
 AS
@@ -384,6 +384,7 @@ SELECT [dbo].[LOC_City].[CityID]
 	  ,[dbo].[MST_Branch].[BranchID]
 	  ,[dbo].[MST_Student].[StudentID]
 	  ,[dbo].[MST_Student].[StudentName]
+	  ,[dbo].[MST_Branch].[BranchName]
 	  ,[dbo].[MST_Student].[MobileNoStudent]
 	  ,[dbo].[MST_Student].[Email]
 	  ,[dbo].[MST_Student].[Created]
@@ -393,7 +394,7 @@ FROM [dbo].[MST_Student]
 INNER JOIN [dbo].[MST_Branch]
 ON [dbo].[MST_Branch].[BranchID] = [dbo].[MST_Student].[BranchID]
 INNER JOIN [dbo].[LOC_City] 
-ON [dbo].[LOC_City].[CityID] = [dbo].[MST_Student].[StudentID]
+ON [dbo].[LOC_City].[CityID] = [dbo].[MST_Student].[CityID]
 WHERE [dbo].[MST_Student].[StudentID] = @StudentID
 ORDER BY [dbo].[MST_Student].[StudentName]
         ,[dbo].[MST_Branch].[BranchName]

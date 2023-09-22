@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Data;
 using SQL_Crud.Areas.MST_Student.Models;
+using Microsoft.CodeAnalysis.Operations;
 
 namespace SQL_Crud.Areas.MST_Student.Controllers
 {
@@ -103,11 +104,11 @@ namespace SQL_Crud.Areas.MST_Student.Controllers
 
             ViewBag.CityDropdownList = cityDropdownModelsList;
             ViewBag.BranchDropdownList = branchDropdownModelsList;
-            #endregion
+            #endregion          
 
             if (StudentID != null)
             {
-                ViewBag.id = StudentID;
+
                 try
                 {
                     string connection_string = this.Configuration.GetConnectionString("myConnectionString");
@@ -124,9 +125,9 @@ namespace SQL_Crud.Areas.MST_Student.Controllers
 
                     MST_StudentModel model = new MST_StudentModel
                     {
+                        StudentID = Convert.ToInt32(data_table.Rows[0]["StudentID"]),
                         CityID = Convert.ToInt32(data_table.Rows[0]["CityID"]),
                         BranchID = Convert.ToInt32(data_table.Rows[0]["BranchID"]),
-                        StudentID = Convert.ToInt32(data_table.Rows[0]["StudentID"]),
                         StudentName = data_table.Rows[0]["StudentName"].ToString(),
                         BranchName = data_table.Rows[0]["BranchName"].ToString(),
                         MobileNoStudent = data_table.Rows[0]["MobileNoStudent"].ToString(),
@@ -135,7 +136,7 @@ namespace SQL_Crud.Areas.MST_Student.Controllers
 
                     return View(model);
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
                     return View();
                 }
@@ -146,7 +147,6 @@ namespace SQL_Crud.Areas.MST_Student.Controllers
                 {
                     StudentID = StudentID
                 };
-
                 return View(model);
             }
         }
@@ -155,7 +155,6 @@ namespace SQL_Crud.Areas.MST_Student.Controllers
         #region Save Record...
         public IActionResult Save(MST_StudentModel studentModel)
         {
-               ViewBag.sname = "heaer";
             try
             {
                 string connectionString = this.Configuration.GetConnectionString("myConnectionString");
@@ -175,7 +174,6 @@ namespace SQL_Crud.Areas.MST_Student.Controllers
                 command.Parameters.AddWithValue("@CityID", studentModel.CityID);
                 command.Parameters.AddWithValue("@BranchID", studentModel.BranchID);
                 command.Parameters.AddWithValue("@StudentName", studentModel.StudentName);
-                command.Parameters.AddWithValue("@BranchName", studentModel.BranchName);
                 command.Parameters.AddWithValue("@MobileNoStudent", studentModel.MobileNoStudent);
                 command.Parameters.AddWithValue("@Email", studentModel.Email);
                 

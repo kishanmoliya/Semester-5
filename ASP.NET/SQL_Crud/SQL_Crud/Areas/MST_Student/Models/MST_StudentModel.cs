@@ -5,10 +5,11 @@ namespace SQL_Crud.Areas.MST_Student.Models
 {
     public class MST_StudentModel
     {
+        public int? StudentID { get; set; }
+
         public int CityID { get; set; }
 
         public int BranchID { get; set; }
-        public int? StudentID { get; set; }
 
         [Required]
         [DisplayName("Student Name")]

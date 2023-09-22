@@ -25,14 +25,6 @@ class UsersList extends StatelessWidget {
       body: ListView.builder(
         itemCount: users.length,
         itemBuilder: (context, index) {
-          // return Column(
-          //           //   crossAxisAlignment: CrossAxisAlignment.start,
-          //           //   children: [
-          //           //     Text('Name: ${users[index]['name']}'),
-          //           //     Text('Surname: ${users[index]['surname']}'),
-          //           //     Text('Birthdate: ${users[index]['birthdate']}'),
-          //           //     Text('City: ${users[index]['city']}'),
-          //           //   ],
           return ListTile(
             title: Text('Name: ${users[index]['name']}'),
             subtitle: Column(

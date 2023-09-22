@@ -34,7 +34,7 @@ namespace SQL_Crud.Areas.LOC_Country.Controllers
         }
         #endregion
 
-        #region Country Add Edit...
+        #region Country Delete...
         public IActionResult LOC_CountryDelete(int CountryID)
         {
             try
@@ -59,7 +59,7 @@ namespace SQL_Crud.Areas.LOC_Country.Controllers
         }
         #endregion
 
-        #region Save Record...
+        #region Country Add Edit...
         public IActionResult LOC_CountryAddEdit(int? ID)
         {
             ViewBag.Data = ID;
@@ -105,7 +105,7 @@ namespace SQL_Crud.Areas.LOC_Country.Controllers
         }
         #endregion
 
-        #region Country Delete...
+        #region Country Save...
         public IActionResult Save(LOC_CountryModel countryModel)
         {
             try
