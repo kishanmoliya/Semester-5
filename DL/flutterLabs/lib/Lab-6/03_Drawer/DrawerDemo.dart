@@ -1,5 +1,5 @@
-import 'package:diploma_projects/Lab-6/Drawer/aboutAsPage.dart';
-import 'package:diploma_projects/Lab-6/Drawer/homePage.dart';
+import 'package:diploma_projects/Lab-6/03_Drawer/aboutAsPage.dart';
+import 'package:diploma_projects/Lab-6/03_Drawer/homePage.dart';
 import 'package:flutter/material.dart';
 
 class DrawerDemo extends StatelessWidget {

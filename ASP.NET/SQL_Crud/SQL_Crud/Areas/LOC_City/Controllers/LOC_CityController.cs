@@ -66,6 +66,8 @@ namespace SQL_Crud.Areas.LOC_City.Controllers
         #region City Add Edit...
         public IActionResult LOC_CityAddEdit(int? CityID)
         {
+            LOC_CityModel cityModel = new LOC_CityModel();
+
             #region Country & State Dropdowns...
             string connectionString = this.Configuration.GetConnectionString("myConnectionString");
             DataTable dt = new DataTable();
@@ -88,7 +90,6 @@ namespace SQL_Crud.Areas.LOC_City.Controllers
                 countryDropdownModels.Add(countryModel);
             }
 
-            LOC_CityModel cityModel = new LOC_CityModel();
             cityModel.CountryDropdownList = countryDropdownModels;
             #endregion
 
@@ -108,18 +109,16 @@ namespace SQL_Crud.Areas.LOC_City.Controllers
                     data_table.Load(sql_data_reader);
                     sql_connection.Close();
 
-                    LOC_CityModel model = new LOC_CityModel
-                    {
-                        CityID = Convert.ToInt32(data_table.Rows[0]["CityID"]),
-                        StateID = Convert.ToInt32(data_table.Rows[0]["StateID"]),
-                        CountryID = Convert.ToInt32(data_table.Rows[0]["CountryID"]),
-                        CityName = data_table.Rows[0]["CityName"].ToString(),
-                        CityCode = data_table.Rows[0]["CityCode"].ToString(),
-                        StateName = data_table.Rows[0]["StateName"].ToString(),
-                        CountryName = data_table.Rows[0]["CountryName"].ToString(),
-                    };
+                    cityModel.CityID = Convert.ToInt32(data_table.Rows[0]["CityID"]);
+                    cityModel.StateID = Convert.ToInt32(data_table.Rows[0]["StateID"]);
+                    cityModel.CountryID = Convert.ToInt32(data_table.Rows[0]["CountryID"]);
+                    cityModel.CityName = data_table.Rows[0]["CityName"].ToString();
+                    cityModel.CityCode = data_table.Rows[0]["CityCode"].ToString();
+                    cityModel.StateName = data_table.Rows[0]["StateName"].ToString();
+                    cityModel.CountryName = data_table.Rows[0]["CountryName"].ToString();
+                    
 
-                    return View(model);
+                    return View(cityModel);
                 }
                 catch (Exception ex)
                 {
@@ -128,12 +127,9 @@ namespace SQL_Crud.Areas.LOC_City.Controllers
             }
             else
             {
-                LOC_CityModel model = new LOC_CityModel
-                {
-                    CityID = CityID
-                };
+                cityModel.CityID = CityID;
 
-                return View(model);
+                return View(cityModel);
             }
         }
         #endregion

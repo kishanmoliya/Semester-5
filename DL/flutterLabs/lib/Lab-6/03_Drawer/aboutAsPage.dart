@@ -1,4 +1,4 @@
-import 'package:diploma_projects/Lab-6/Drawer/DrawerDemo.dart';
+import 'package:diploma_projects/Lab-6/03_Drawer/DrawerDemo.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatelessWidget {

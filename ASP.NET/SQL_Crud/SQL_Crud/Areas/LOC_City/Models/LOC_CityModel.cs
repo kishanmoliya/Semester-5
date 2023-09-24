@@ -38,5 +38,5 @@ namespace SQL_Crud.Areas.LOC_City.Models
         public int CityID { get; set; }
 
         public string CityName { get; set; } = string.Empty;
-    }
+    }   
 }

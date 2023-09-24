@@ -8,30 +8,34 @@ class TabViewDemo extends StatefulWidget {
 }
 
 class _TabViewDemoState extends State<TabViewDemo> {
-  final TabController _tabController = TabController(length: 2, vsync: AnimatedListState());
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('TabView Example'),
-        bottom: TabBar(
-          controller: _tabController,
-          tabs: [
-            Tab(text: 'Tab 1'),
-            Tab(text: 'Tab 2'),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Tab Bar"),
+          bottom: const TabBar(
+            tabs: [
+              Tab(
+                text: "Tab 1",
+              ),
+              Tab(
+                text: "Tab 2",
+              ),
+              Tab(
+                text: "Tab 3",
+              ),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            Center(child: Text('First Tab')),
+            Center(child: Text('Second Tab')),
+            Center(child: Text('Third Tab')),
           ],
         ),
-      ),
-      body: TabBarView(
-        controller: _tabController,
-        children: [
-          Center(
-            child: Text('Tab 1'),
-          ),
-          Center(
-            child: Text('Tab 2'),
-          ),
-        ],
       ),
     );
   }
