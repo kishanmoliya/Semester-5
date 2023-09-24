@@ -19,6 +19,6 @@ namespace SQL_Crud.Areas.LOC_Country.Models
     public class LOC_CountryDropdownModel
     {
         public int CountryID { get; set; }
-        public string CountryName { get; set; }
+        public string CountryName { get; set; } = String.Empty;
     }
 }
