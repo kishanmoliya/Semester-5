@@ -3,9 +3,11 @@ import 'package:diploma_projects/Lab-5/03_GridViewDemo.dart';
 import 'package:diploma_projects/Lab-5/04_GrideViewBuilderDemo.dart';
 import 'package:diploma_projects/Lab-5/02_ListViewBuilderDemo.dart';
 import 'package:diploma_projects/Lab-5/01_ListViewDemo.dart';
-import 'package:diploma_projects/Lab-5/UserModelDemo.dart';
-import 'package:diploma_projects/Lab-5/UserModelDemo2.dart';
+import 'package:diploma_projects/Lab-6/01_UserModelDemo.dart';
 import 'package:diploma_projects/Lab-5/listOfUsers.dart';
+import 'package:diploma_projects/Lab-6/02_Tav_View.dart';
+import 'package:diploma_projects/Lab-6/03_Drawer/homePage.dart';
+import 'package:diploma_projects/Lab-6/04_ActionBarDemo.dart';
 import 'package:flutter/material.dart';
 //How to get flutter version
 void main() {
@@ -23,7 +25,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: RollDice(),
+      debugShowCheckedModeBanner: false,
+      home: ActionBarDemo(),
     );
   }
 }

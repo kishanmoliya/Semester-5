@@ -161,5 +161,25 @@ namespace SQL_Crud.Areas.LOC_State.Controllers
             }
         }
         #endregion
+
+        #region Search State...
+        public IActionResult LOC_StateSearch(LOC_StateModel LOC_State)
+        {
+            string connectionString = this.Configuration.GetConnectionString("myConnectionString");
+            SqlConnection connection = new SqlConnection(connectionString);
+            DataTable dt = new DataTable();
+            connection.Open();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "PR_State_Search";
+            command.Parameters.AddWithValue("@StateName", LOC_State.StateName);
+            command.Parameters.AddWithValue("@StateCode", LOC_State.StateCode);
+            SqlDataReader data_reader = command.ExecuteReader();
+            dt.Load(data_reader);
+            connection.Close();
+
+            return View("LOC_StateList", dt);
+        }
+        #endregion
     }
 }

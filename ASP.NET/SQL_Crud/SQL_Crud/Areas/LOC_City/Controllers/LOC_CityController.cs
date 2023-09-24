@@ -68,50 +68,28 @@ namespace SQL_Crud.Areas.LOC_City.Controllers
         {
             #region Country & State Dropdowns...
             string connectionString = this.Configuration.GetConnectionString("myConnectionString");
-            DataTable countryDataTable = new DataTable();
-            DataTable stateDataTable = new DataTable();
+            DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.StoredProcedure;
             command.CommandText = "PR_Country_Dropdown";
-            SqlDataReader data_reader1 = command.ExecuteReader();
-            countryDataTable.Load(data_reader1);
-            command.CommandText = "PR_State_Dropdown";
-            SqlDataReader data_reader2 = command.ExecuteReader();
-            stateDataTable.Load(data_reader2);
+            SqlDataReader reader = command.ExecuteReader();
+            dt.Load(reader);
 
-            List<LOC_CountryDropdownModel> countryDropdownModelsList = new List<LOC_CountryDropdownModel>();
-            foreach (DataRow data in countryDataTable.Rows)
+            List<LOC_CountryDropdownModel> countryDropdownModels = new List<LOC_CountryDropdownModel>();
+            foreach (DataRow data in dt.Rows)
             {
                 LOC_CountryDropdownModel countryModel = new LOC_CountryDropdownModel
                 {
                     CountryID = Convert.ToInt32(data["CountryID"]),
                     CountryName = data["CountryName"].ToString(),
                 };
-                countryDropdownModelsList.Add(countryModel);
+                countryDropdownModels.Add(countryModel);
             }
 
-
-            List<LOC_StateDropdownModel> stateDropdownModelsList = new List<LOC_StateDropdownModel>();
-            foreach (DataRow data in stateDataTable.Rows)
-            {
-/*                command.CommandText = "PR_GetStateFromCountry";
-                command.Parameters.AddWithValue("@CountryID", @ViewBag.selectrdID.CountryID);
-                SqlDataReader data_reader3 = command.ExecuteReader();
-                stateDataTable.Load(data_reader3);
-                connection.Close();*/
-
-                LOC_StateDropdownModel stateModel = new LOC_StateDropdownModel
-                {
-                    StateID = Convert.ToInt32(data["StateID"]),
-                    StateName = data["StateName"].ToString(),
-                };
-                stateDropdownModelsList.Add(stateModel);
-            }
-
-            ViewBag.CountryDropdownList = countryDropdownModelsList;
-            ViewBag.StateDropdownList = stateDropdownModelsList;
+            LOC_CityModel cityModel = new LOC_CityModel();
+            cityModel.CountryDropdownList = countryDropdownModels;
             #endregion
 
             if (CityID != null)
@@ -192,6 +170,26 @@ namespace SQL_Crud.Areas.LOC_City.Controllers
             {
                 return RedirectToAction("Index");
             }
+        }
+        #endregion
+
+        #region Search City...
+        public IActionResult LOC_CitySearch(LOC_CityModel LOC_City)
+        {
+            string connectionString = this.Configuration.GetConnectionString("myConnectionString");
+            SqlConnection connection = new SqlConnection(connectionString);
+            DataTable dt = new DataTable();
+            connection.Open();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "PR_City_Search";
+            command.Parameters.AddWithValue("@CityName", LOC_City.CityName);
+            command.Parameters.AddWithValue("@CityCode", LOC_City.CityCode);
+            SqlDataReader data_reader = command.ExecuteReader();
+            dt.Load(data_reader);
+            connection.Close();
+
+            return View("LOC_CityList", dt);
         }
         #endregion
     }

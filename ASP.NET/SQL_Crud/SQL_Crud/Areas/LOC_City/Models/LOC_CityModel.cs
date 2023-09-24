@@ -26,4 +26,11 @@ namespace SQL_Crud.Areas.LOC_City.Models
         [DisplayName("Country Name")]
         public string CountryName { get; set; } = string.Empty;
     }
+
+    public class LOC_CityDropdownModel
+    {
+        public int CityID { get; set; }
+
+        public string CityName { get; set; } = string.Empty;
+    }
 }

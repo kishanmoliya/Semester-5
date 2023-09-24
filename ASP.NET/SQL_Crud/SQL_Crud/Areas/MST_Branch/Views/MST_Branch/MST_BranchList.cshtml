@@ -5,10 +5,19 @@
     Layout = "_Layout";
 }
 
-<div class="container">
-    <div class="mb-3 text-end">
-        <a type="button" asp-area="MST_Branch" asp-controller="MST_Branch" asp-action="MST_BranchAddEdit" class="btn btn-outline-primary"><i class="bi bi-plus"></i>New Branch</a>
-    </div>
+<div class="Container">
+    <nav class="navbar bg-body-tertiary mb-2">
+        <div class="container-fluid">
+            <form class="d-flex w-50" role="search" asp-area="MST_Branch" asp-controller="MST_Branch" asp-action="MST_BranchSearch">
+                <input class="form-control me-2" type="text" placeholder="Search by Branch name" aria-label="Search" name="BranchName">
+                <input class="form-control me-2" type="text" placeholder="Search by Branch code" aria-label="Search" name="BranchCode">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <form method="post" asp-area="MST_Branch" asp-controller="MST_Branch" asp-action="MST_BranchAddEdit">
+                <button type="submit" class="btn btn-outline-primary"><i class="bi bi-plus"></i>New Branch</button>
+            </form>
+        </div>
+    </nav>
     <table class="table table-hover">
         <thead>
             <tr class="table-primary">

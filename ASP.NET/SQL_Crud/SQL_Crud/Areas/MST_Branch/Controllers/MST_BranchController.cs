@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Data;
 using SQL_Crud.Areas.LOC_Country.Models;
 using SQL_Crud.Areas.MST_Branch.Models;
+using SQL_Crud.Areas.LOC_City.Models;
 
 namespace SQL_Crud.Areas.MST_Branch.Controllers
 {
@@ -137,6 +138,26 @@ namespace SQL_Crud.Areas.MST_Branch.Controllers
             {
                 return RedirectToAction("Index");
             }
+        }
+        #endregion
+
+        #region Search Branch...
+        public IActionResult MST_BranchSearch(MST_BranchModel MST_Branch)
+        {
+            string connectionString = this.Configuration.GetConnectionString("myConnectionString");
+            SqlConnection connection = new SqlConnection(connectionString);
+            DataTable dt = new DataTable();
+            connection.Open();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "PR_Branch_Search";
+            command.Parameters.AddWithValue("@BranchName", MST_Branch.BranchName);
+            command.Parameters.AddWithValue("@BranchCode", MST_Branch.BranchCode);
+            SqlDataReader data_reader = command.ExecuteReader();
+            dt.Load(data_reader);
+            connection.Close();
+
+            return View("MST_BranchList", dt);
         }
         #endregion
     }

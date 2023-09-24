@@ -188,5 +188,24 @@ namespace SQL_Crud.Areas.MST_Student.Controllers
             }
         }
         #endregion
+
+        #region Search Student...
+        public IActionResult MST_StudentSearch(MST_StudentModel MST_Student)
+        {
+            string connectionString = this.Configuration.GetConnectionString("myConnectionString");
+            SqlConnection connection = new SqlConnection(connectionString);
+            DataTable dt = new DataTable();
+            connection.Open();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "PR_Student_Search";
+            command.Parameters.AddWithValue("@StudentName", MST_Student.StudentName);
+            SqlDataReader data_reader = command.ExecuteReader();
+            dt.Load(data_reader);
+            connection.Close();
+
+            return View("MST_StudentList", dt);
+        }
+        #endregion
     }
 }

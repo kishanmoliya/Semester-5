@@ -5,11 +5,20 @@
     Layout = "_Layout";
 }
 
+<div class="Container">
+    <nav class="navbar bg-body-tertiary mb-2">
+        <div class="container-fluid">
+            <form class="d-flex w-50" role="search" asp-area="LOC_State" asp-controller="LOC_State" asp-action="LOC_StateSearch">
+                <input class="form-control me-2" type="text" placeholder="Search by State name" aria-label="Search" name="StateName">
+                <input class="form-control me-2" type="text" placeholder="Search by State code" aria-label="Search" name="StateCode">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <form method="post" asp-area="LOC_State" asp-controller="LOC_State" asp-action="LOC_StateAddEdit">
+                <button type="submit" class="btn btn-outline-primary"><i class="bi bi-plus"></i>New State</button>
+            </form>
+        </div>
+    </nav>
 
-<div class="container">
-    <div class="mb-3 text-end">
-        <a type="button" asp-area="LOC_State" asp-controller="LOC_State" asp-action="LOC_StateAddEdit" class="btn btn-outline-primary"><i class="bi bi-plus"></i>Add State</a>
-    </div>
     <table class="table table-hover">
         <thead>
             <tr class="table-primary">
