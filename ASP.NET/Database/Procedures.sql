@@ -461,10 +461,11 @@ ORDER BY [dbo].[LOC_State].[StateName]
 
 -----------------------------
 -- [dbo].[PR_GetStateFromCountry] @CountryID = 1
-Create or Alter Procedure [dbo].[PR_GetStateFromCountry]
+Create or Alter Procedure [dbo].[PR_GetStateByCountry]
 	@CountryID int
 As
-	Select [dbo].[LOC_State].[StateName]
+	Select  [dbo].[LOC_State].[StateID]
+		   ,[dbo].[LOC_State].[StateName]
 From [dbo].[LOC_State]
 Inner Join [dbo].[LOC_Country]
 On [dbo].[LOC_Country].[CountryID] = [dbo].[LOC_State].[CountryID]

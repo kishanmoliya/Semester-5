@@ -188,5 +188,37 @@ namespace SQL_Crud.Areas.LOC_City.Controllers
             return View("LOC_CityList", dt);
         }
         #endregion
+
+        public IActionResult LOC_StateDropdownListByCountryID(int CountryID)
+        {
+            //return RedirectToRoute(new { Area = "LOC_Country", controller = "LOC_Country", action = "Index" });
+
+            string connectionString = this.Configuration.GetConnectionString("myConnectionString");
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "PR_GetStateByCountry";
+            command.Parameters.AddWithValue("@CountryID", CountryID);
+            SqlDataReader reader = command.ExecuteReader();
+            dt.Load(reader);
+            connection.Close();
+
+            List<LOC_StateDropdownModel> stateDropdownModels = new List<LOC_StateDropdownModel>();
+            foreach (DataRow item in dt.Rows)
+            {
+                LOC_StateDropdownModel model = new LOC_StateDropdownModel
+                {
+                    StateID = Convert.ToInt32(item["StateID"]),
+                    StateName = item["StateName"].ToString(),
+                };
+
+                stateDropdownModels.Add(model);
+            }
+
+            return Json(stateDropdownModels);
+        }
     }
+
 }

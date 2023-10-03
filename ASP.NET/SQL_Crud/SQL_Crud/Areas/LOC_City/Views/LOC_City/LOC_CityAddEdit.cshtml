@@ -12,7 +12,7 @@
         @Html.HiddenFor(x => x.CityID)
         <div class="my-4">
             <select class="form-select" id="CountryDropdown" onchange="stateChange()" aria-label="Select Country" asp-for="CountryID">
-                <option selected>Select Country</option>
+                <option disabled selected>Select Country</option>
                 @foreach (var item in Model.CountryDropdownList)
                 {
                     <option value="@item.CountryID">@item.CountryName</option>
@@ -40,7 +40,7 @@
 
 @section Scripts{
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script
+    <script>
         function stateChange() {
             var countryID = $("#CountryDropdown").val();
             var stateID = @Model.StateID;
